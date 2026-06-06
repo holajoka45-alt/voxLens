@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voxlens"
+version = "0.2.0.dev0"
+description = "Speaker diarization fine-tuning and evaluation toolkit"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "VoxLens Contributors"}
+]
+keywords = ["speaker-diarization", "audio", "speech", "voice", "pytorch", "diarization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+dependencies = [
+    "torch>=2.1.0",
+    "torchaudio>=2.1.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "librosa>=0.10.0",
+    "soundfile>=0.12.0",
+    "pyannote.core>=5.0.0",
+    "pyannote.metrics>=3.2.0",
+    "einops>=0.7.0",
+    "tqdm>=4.64.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "onnxruntime-gpu>=1.16.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pre-commit>=3.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "matplotlib>=3.7.0",
+    "pandas>=2.0.0",
+    "seaborn>=0.12.0",
+]
+all = [
+    "voxlens[gpu,dev,notebooks]",
+]
+
+[project.urls]
+Homepage = "https://github.com/holajoka45-alt/voxLens"
+Repository = "https://github.com/holajoka45-alt/voxLens.git"
+Issues = "https://github.com/holajoka45-alt/voxLens/issues"
+
+[tool.setuptools.packages.find]
+include = ["voxlens*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: marks tests as slow",
+    "gpu: marks tests requiring GPU",
+    "audio: marks tests that need audio I/O",
+]

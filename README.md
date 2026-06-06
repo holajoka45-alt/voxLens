@@ -4,7 +4,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![tests](https://github.com/holajoka45-alt/voxLens/actions/workflows/tests.yml/badge.svg)](https://github.com/holajoka45-alt/voxLens/actions/workflows/tests.yml)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](https://github.com/holajoka45-alt/voxLens/actions)
 
 **Status: alpha. Under active development. Expect sharp edges. Not production-ready.**
 
